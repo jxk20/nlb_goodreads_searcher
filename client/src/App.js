@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { processBookList } from "./utils/processBook";
 import "./App.css";
 import Display from "./components/Display";
 import Header from "./UI/Header";
+import LoadingBar from "./components/LoadingBar";
 import SearchButton from "./components/SearchButton";
 import Uploader from "./components/Uploader";
 
@@ -9,27 +11,31 @@ function App() {
   const [hasUploadedCsv, setHasUploadedCsv] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [rawBookList, setRawBookList] = useState([]);
-  const [processedBookList, setProcessedBookList] = useState([]);
+  const [resultsList, setResultsList] = useState([]);
+  const [numBooksSearched, setNumBooksSearched] = useState(0);
+  const [totalNumBooksToSearch, setTotalNumBooksToSearch] = useState(0);
 
   const addBookListHandler = (newBookList) => {
     setHasUploadedCsv(true);
     setRawBookList(newBookList);
   };
 
-  const processBookList = (oldBookList) => {
-    return oldBookList.map((book) => book["Book Id"]);
-  };
-
   const clickSearchButtonHandler = () => {
     console.log("Click Search Button");
     console.log(hasUploadedCsv);
     setIsProcessing(true);
-    const newProcessedBookList = processBookList(rawBookList);
+    // const results =
+    processBookList(rawBookList, setResultsList, setNumBooksSearched);
     // setIsProcessing(true);
-    setTimeout(() => {
-      setIsProcessing(false);
-    }, 5000);
-    setProcessedBookList(newProcessedBookList);
+    // setTimeout(() => {
+    //   setIsProcessing(false);
+    // }, 2000);
+
+    // console.log("Processed results");
+    // console.log(results);
+    // setResultsList(results);
+    setTotalNumBooksToSearch(rawBookList.length);
+    setIsProcessing(false);
     setHasUploadedCsv(false);
   };
 
@@ -46,7 +52,11 @@ function App() {
         hasUploadedCsv={hasUploadedCsv}
         isProcessing={isProcessing}
       />
-      <Display bookList={processedBookList} isProcessing={isProcessing} />
+      <LoadingBar
+        numBooksSearched={numBooksSearched}
+        totalNumBooksToSearch={totalNumBooksToSearch}
+      />
+      <Display resultsList={resultsList} isProcessing={isProcessing} />
     </div>
   );
 }

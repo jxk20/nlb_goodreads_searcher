@@ -17,7 +17,7 @@ const SearchButton = (props) => {
         </Button>
       );
     } else {
-      return <h1>WHERE's MA BUTTON??</h1>;
+      return <h1>You may upload your CSV file (again).</h1>;
     }
   };
 
