@@ -18,7 +18,6 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.get("/api", (req, res) => {
   console.log(`nlbKey = ${nlbKey}`);
   console.log(req.query);
-  // res.send("isbn: " + req.query.isbn);
   nlb
     .GetAvailabilityInfo({ ISBN: req.query.isbn })
     .then((nlb_res) => {
@@ -29,15 +28,6 @@ app.get("/api", (req, res) => {
       console.error(err);
       res.send([]);
     });
-  // try {
-  //   result = nlb.GetAvailabilityInfo({ ISBN: req.query.isbn });
-  //   console.log("result");
-  //   console.log(result);
-  //   res.send(result);
-  // } catch (err) {
-  //   console.error("err", err);
-  // }
-  // res.json({ BOOK_ISBN: req.query });
 });
 
 app.listen(PORT, () => {
