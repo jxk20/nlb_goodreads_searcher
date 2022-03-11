@@ -21,19 +21,8 @@ function App() {
   };
 
   const clickSearchButtonHandler = () => {
-    console.log("Click Search Button");
-    console.log(hasUploadedCsv);
     setIsProcessing(true);
-    // const results =
     processBookList(rawBookList, setResultsList, setNumBooksSearched);
-    // setIsProcessing(true);
-    // setTimeout(() => {
-    //   setIsProcessing(false);
-    // }, 2000);
-
-    // console.log("Processed results");
-    // console.log(results);
-    // setResultsList(results);
     setTotalNumBooksToSearch(rawBookList.length);
     setIsProcessing(false);
     setHasUploadedCsv(false);

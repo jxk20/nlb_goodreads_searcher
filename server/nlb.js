@@ -1,3 +1,5 @@
+// Code from https://github.com/hueyy/nlb
+
 const { soap } = require("strong-soap");
 
 const url = "https://openweb.nlb.gov.sg/OWS/CatalogueService.svc?wsdl";
