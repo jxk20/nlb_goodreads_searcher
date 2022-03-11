@@ -386,6 +386,14 @@ const ResultsTable = function (props) {
   const columns = React.useMemo(
     () => [
       {
+        id: "columnId_00.5282067898592417",
+        Header: "Branch",
+        Footer: "",
+        accessor: "BranchName",
+        Filter: SelectColumnFilter,
+        filter: "includes",
+      },
+      {
         id: "columnId_00.008266291672099024",
         Header: "Title",
         Footer: "",
@@ -412,14 +420,6 @@ const ResultsTable = function (props) {
         filter: "between",
       },
       {
-        id: "columnId_00.5282067898592417",
-        Header: "Branch",
-        Footer: "",
-        accessor: "BranchName",
-        Filter: SelectColumnFilter,
-        filter: "includes",
-      },
-      {
         id: "columnId_00.02906466144121511",
         Header: "Loan Status",
         Footer: "",
@@ -427,12 +427,6 @@ const ResultsTable = function (props) {
         Filter: SelectColumnFilter,
         filter: "includes",
       },
-      // {
-      //   id: "columnId_00.9590956521266043",
-      //   Header: "ISBN",
-      //   Footer: "",
-      //   accessor: "Key6",
-      // },
     ],
     []
   );
