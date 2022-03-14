@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { processBookList } from "./utils/processBook";
+import { useState } from "react";
+import { processBookList, filterToReadBooks } from "./utils/processBook";
 import "./App.css";
 import Display from "./components/Display";
 import Header from "./UI/Header";
@@ -22,8 +22,9 @@ function App() {
 
   const clickSearchButtonHandler = () => {
     setIsProcessing(true);
-    processBookList(rawBookList, setResultsList, setNumBooksSearched);
-    setTotalNumBooksToSearch(rawBookList.length);
+    const filteredBooklist = filterToReadBooks(rawBookList);
+    processBookList(filteredBooklist, setResultsList, setNumBooksSearched);
+    setTotalNumBooksToSearch(filteredBooklist.length);
     setIsProcessing(false);
     setHasUploadedCsv(false);
   };
