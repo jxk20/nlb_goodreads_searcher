@@ -1,7 +1,9 @@
-# nlb_goodreads_searcher-heroku
+# nlb_goodreads_searcher
 Web app to search for books on NLB
 
-
+![CI/CD](https://github.com/jxk20/nlb_goodreads_searcher/workflows/CI/CD/badge.svg)
+[![Codecov](https://img.shields.io/codecov/c/github/jxk20/nlb_goodreads_searcher)](https://codecov.io/gh/jxk20/nlb_goodreads_searcher)
+![License](https://img.shields.io/github/license/jxk20/nlb_goodreads_searcher)
 
 
 ## Setup locally
