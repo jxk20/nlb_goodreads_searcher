@@ -40,6 +40,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:
-          version: "v0.1.15"
+          token: 1c782cf8-5020-4428-a6aa-c1c769d3dfd8
+          version: "v0.1.16"
       - name: Build
         run: CI=false && npm run build
