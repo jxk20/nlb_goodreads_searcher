@@ -1,4 +1,22 @@
-// import { useEffect } from "react";
+var EMPTY_RESULT = {
+  ItemNo: null,
+  BranchID: null,
+  BranchName: null,
+  LocationCode: null,
+  LocationDesc: null,
+  CallNumber: null,
+  StatusCode: null,
+  StatusDesc: null,
+  MediaCode: null,
+  MediaDesc: null,
+  StatusDate: null,
+  DueDate: null,
+  ClusterName: null,
+  CategoryName: null,
+  CollectionCode: null,
+  CollectionMinAgeLimit: null,
+};
+
 export async function processBookList(
   oldBookList,
   setResultsList,
@@ -33,4 +51,8 @@ function processResult(book, result) {
     StatusDesc: result.StatusDesc,
     Isbn: book.ISBN13,
   };
+}
+
+export function filterToReadBooks(rawBookList) {
+  return rawBookList.filter((book) => book["Bookshelves"] === "to-read");
 }
