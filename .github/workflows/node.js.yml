@@ -37,7 +37,7 @@ jobs:
       - name: Test frontend
         run: cd client && npm test -- --coverage
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v2
         with:
           version: "v0.1.15"
       - name: Build
