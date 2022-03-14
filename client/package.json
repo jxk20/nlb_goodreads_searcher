@@ -39,8 +39,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:3001",
-  "devDependencies": {
-    "babel-core": "^6.26.3"
-  }
+  "proxy": "http://localhost:3001"
 }
