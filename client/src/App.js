@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { processBookList } from "./utils/processBook";
 import "./App.css";
 import Display from "./components/Display";
