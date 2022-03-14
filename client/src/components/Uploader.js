@@ -11,7 +11,6 @@ const Uploader = (props) => {
 
   const analyseData = (results) => {
     console.log("analyseData");
-    console.log(results);
     console.log(results.data);
     props.onAddBookList(results.data);
   };

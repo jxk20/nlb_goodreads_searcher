@@ -26,18 +26,30 @@ export async function processBookList(
   setNumBooksSearched(0);
   for (const book of oldBookList) {
     const result = await processBook(book);
+    console.log("processBookList: ", result);
     setResultsList((prevResults) => [...prevResults, ...result]);
     setNumBooksSearched((prevValue) => prevValue + 1);
   }
 }
 
 async function processBook(book) {
-  try {
-    const response = await fetch(`/api?isbn=${book.ISBN13}`);
-    const results = await response.json();
-    return results.map((result) => processResult(book, result));
-  } catch (err) {
-    return {};
+  const isbn13 = book.ISBN13.replace(/[^a-z0-9]/gi, "");
+  // const isbn13 = book.ISBN13;
+  console.log(isbn13);
+  console.log(book.Title);
+  if (isbn13 === "") {
+    console.log("Book doesn't exist!");
+    const blankResult = processResult(book, EMPTY_RESULT);
+    console.log(blankResult);
+    return [blankResult];
+  } else {
+    try {
+      const response = await fetch(`/api?isbn=${isbn13}`);
+      const results = await response.json();
+      return results.map((result) => processResult(book, result));
+    } catch (err) {
+      return [{}];
+    }
   }
 }
 
