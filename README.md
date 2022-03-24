@@ -24,5 +24,6 @@ In the 2nd one, run
 
 ```bash
 cd client
+npm run build
 npm start
 ```
