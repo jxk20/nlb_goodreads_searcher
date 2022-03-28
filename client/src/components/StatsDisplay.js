@@ -7,8 +7,9 @@ const StatsDisplay = (props) => {
       const validRatings = allRatings.filter(
         (rating) => 0.0 <= rating <= 5.0 && !isNaN(rating)
       );
-      console.log(validRatings);
-      return validRatings.reduce((a, b) => a + b, 0) / validRatings.length;
+      const avgRating =
+        validRatings.reduce((a, b) => a + b, 0) / validRatings.length;
+      return avgRating.toFixed(2);
     }
   };
 
@@ -18,7 +19,7 @@ const StatsDisplay = (props) => {
       <h1>
         <u>Stats</u>
       </h1>
-      <h1>Average Rating: {getAvgRating(props.bookList).toFixed(2)}</h1>
+      <h1>Average Rating: {getAvgRating(props.bookList)}</h1>
     </div>
   );
 };
