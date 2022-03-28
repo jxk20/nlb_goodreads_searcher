@@ -7,6 +7,7 @@ import Display from "./components/Display";
 import Header from "./UI/Header";
 import LoadingBar from "./components/LoadingBar";
 import SearchButton from "./components/SearchButton";
+import StatsDisplay from "./components/StatsDisplay";
 import Uploader from "./components/Uploader";
 
 function App() {
@@ -36,9 +37,9 @@ function App() {
       <Header />
       <Uploader
         onAddBookList={addBookListHandler}
-        hasUploadedCsv={hasUploadedCsv}
         isProcessing={isProcessing}
       />
+      <StatsDisplay bookList={rawBookList} />
       <SearchButton
         onClickSearchButton={clickSearchButtonHandler}
         hasUploadedCsv={hasUploadedCsv}
