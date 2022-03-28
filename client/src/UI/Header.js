@@ -1,6 +1,6 @@
 import classes from "./Header.module.css";
 
-const Header = (props) => {
+const Header = () => {
   return (
     <div className={classes.Header}>
       <h1>NLB Goodreads Searcher</h1>
