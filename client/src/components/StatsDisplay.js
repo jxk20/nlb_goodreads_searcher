@@ -1,3 +1,5 @@
+import Card from "../UI/Card";
+
 const StatsDisplay = (props) => {
   const getAvgRating = (bookList) => {
     if (bookList.length > 0) {
@@ -13,14 +15,25 @@ const StatsDisplay = (props) => {
     }
   };
 
-  // props.bookList
+  const countBooksByType = (bookList, columnHeader) => {
+    const filteredBooks = bookList.filter(
+      (book) => book["Exclusive Shelf"] === columnHeader
+    );
+    return filteredBooks.length;
+  };
+
   return (
-    <div>
+    <Card>
       <h1>
         <u>Stats</u>
       </h1>
-      <h1>Average Rating: {getAvgRating(props.bookList)}</h1>
-    </div>
+      <h2>Average Rating: {getAvgRating(props.bookList)}</h2>
+      <h1>
+        <u>Book Distribution</u>
+      </h1>
+      <h2> Read: {countBooksByType(props.bookList, "read")}</h2>
+      <h2> To read: {countBooksByType(props.bookList, "to-read")}</h2>
+    </Card>
   );
 };
 
