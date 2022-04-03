@@ -39,17 +39,21 @@ function App() {
         onAddBookList={addBookListHandler}
         isProcessing={isProcessing}
       />
-      <StatsDisplay bookList={rawBookList} />
-      <SearchButton
-        onClickSearchButton={clickSearchButtonHandler}
-        hasUploadedCsv={hasUploadedCsv}
-        isProcessing={isProcessing}
-      />
-      <LoadingBar
-        numBooksSearched={numBooksSearched}
-        totalNumBooksToSearch={totalNumBooksToSearch}
-      />
-      <Display resultsList={resultsList} isProcessing={isProcessing} />
+      {hasUploadedCsv && (
+        <>
+          <StatsDisplay bookList={rawBookList} />
+          <SearchButton
+            onClickSearchButton={clickSearchButtonHandler}
+            hasUploadedCsv={hasUploadedCsv}
+            isProcessing={isProcessing}
+          />
+          <LoadingBar
+            numBooksSearched={numBooksSearched}
+            totalNumBooksToSearch={totalNumBooksToSearch}
+          />
+          <Display resultsList={resultsList} isProcessing={isProcessing} />
+        </>
+      )}
     </div>
   );
 }
