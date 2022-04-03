@@ -34,6 +34,7 @@ const StatsDisplay = (props) => {
       <h2> Read: {countBooksByType(props.bookList, "read")}</h2>
       <h2> To read: {countBooksByType(props.bookList, "to-read")}</h2>
     </Card>
+
   );
 };
 
