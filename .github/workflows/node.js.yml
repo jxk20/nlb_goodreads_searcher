@@ -37,6 +37,8 @@ jobs:
         run: npm install && cd client && npm install
       - name: Test frontend
         run: cd client && npm test -- --coverage
+      - name: Test backend
+        run: cd server && npm test -- --coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
         with:
